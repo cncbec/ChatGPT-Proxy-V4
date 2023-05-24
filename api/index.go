@@ -1,6 +1,23 @@
 package api
 
+import (
+	"os"
+	"github.com/fvbock/endless"
+	"github.com/gin-gonic/gin"
+	"net/http"
+)
 
+var (
+	jar     = tls_client.NewCookieJar()
+	options = []tls_client.HttpClientOption{
+		tls_client.WithTimeoutSeconds(360),
+		tls_client.WithClientProfile(tls_client.Chrome_112),
+		tls_client.WithNotFollowRedirects(),
+		tls_client.WithCookieJar(jar), // create cookieJar instance and pass it as argument
+	}
+	client, _  = tls_client.NewHttpClient(tls_client.NewNoopLogger(), options...)
+	http_proxy = os.Getenv("http_proxy")
+)
 
 func Handler(w http.ResponseWriter, r *http.Request) {
 

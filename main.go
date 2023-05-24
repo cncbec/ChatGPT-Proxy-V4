@@ -10,6 +10,7 @@ import (
 
 	"github.com/fvbock/endless"
 	"github.com/gin-gonic/gin"
+	"net/http"
 )
 
 var (

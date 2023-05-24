@@ -25,7 +25,7 @@ var (
 	http_proxy = os.Getenv("http_proxy")
 )
 
-func main() {
+func Main() {
 
 	if http_proxy != "" {
 		client.SetProxy(http_proxy)

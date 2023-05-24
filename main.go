@@ -10,7 +10,6 @@ import (
 
 	"github.com/fvbock/endless"
 	"github.com/gin-gonic/gin"
-	"net/http"
 )
 
 var (
@@ -117,9 +116,6 @@ func main() {
 
 	gin.SetMode(gin.ReleaseMode)
 	endless.ListenAndServe(os.Getenv("HOST")+":"+PORT, handlerss)
-}
-func Index(w http.ResponseWriter, r *http.Request) {
-	main()
 }
 
 

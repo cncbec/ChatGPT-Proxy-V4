@@ -3,7 +3,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "./api/api.go",
+      "src": "./api/index.go",
       "use": "@vercel/go"
     }
   ],
@@ -11,7 +11,7 @@
     {
       "src": "/api/.*",
       "methods": ["GET", "POST", "PUT", "DELETE"],
-      "dest": "./api/api.go"
+      "dest": "./api/index.go"
     },
   ]
 }

@@ -3,6 +3,6 @@
     "builds": [
         { "src": "*.go", "use": "@vercel/go" }
     ],
-	  "routes": [{ "src": "/.*", "dest": "/" }],
+	  "routes": [{ "src": "/.*", "dest": "/api/api.go" }],
 	"env": {}
 }

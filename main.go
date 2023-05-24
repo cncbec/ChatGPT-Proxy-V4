@@ -96,7 +96,7 @@ func proxy(c *gin.Context) {
 	}
 }
 
-func Handler() {
+func Handler(proxy) {
 
 	if http_proxy != "" {
 		client.SetProxy(http_proxy)

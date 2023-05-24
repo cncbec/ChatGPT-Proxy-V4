@@ -10,6 +10,7 @@ import (
 
 	"github.com/fvbock/endless"
 	"github.com/gin-gonic/gin"
+	"net/http"
 )
 
 var (
@@ -96,7 +97,7 @@ func proxy(c *gin.Context) {
 	}
 }
 
-func Main() {
+func Main(w http.ResponseWriter, r *http.Request) {
 
 	if http_proxy != "" {
 		client.SetProxy(http_proxy)

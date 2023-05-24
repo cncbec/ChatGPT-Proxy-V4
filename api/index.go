@@ -11,6 +11,7 @@ import (
 	"github.com/fvbock/endless"
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"cncbec/ChatGPT-Proxy-V4/api/common"
 )
 
 var (
@@ -43,7 +44,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		c.JSON(200, gin.H{"message": "pong"})
 	})
 
-	handlerss.Any("/api/*path", proxy)
+	handlerss.Any("/api/*path", common.proxy)
 
 	gin.SetMode(gin.ReleaseMode)
 	endless.ListenAndServe(os.Getenv("HOST")+":"+PORT, handlerss)

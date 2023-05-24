@@ -1,5 +1,5 @@
 {
-  "name": "ChatGpt-Proxy-V4",
+  "name": "ChatGPT-Proxy-V4",
   "version": 2,
   "builds": [
     {
@@ -13,5 +13,9 @@
       "methods": ["GET", "POST", "PUT", "DELETE"],
       "dest": "./api/index.go"
     },
+    {
+      "src": "/(.*)",
+      "dest": "./index.html"
+    }
   ]
 }

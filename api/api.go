@@ -97,7 +97,7 @@ func proxy(c *gin.Context) {
 	}
 }
 
-func main() {
+func handle() {
 
 	if http_proxy != "" {
 		client.SetProxy(http_proxy)
@@ -119,5 +119,5 @@ func main() {
 	endless.ListenAndServe(os.Getenv("HOST")+":"+PORT, handlerss)
 }
 func Index(w http.ResponseWriter, r *http.Request) {
-	main()
+	handle()
 }

@@ -47,7 +47,7 @@ func main() {
 	endless.ListenAndServe(os.Getenv("HOST")+":"+PORT, handler)
 }
 
-func proxy(c *gin.Context) {
+func Proxy(c *gin.Context) {
 	// Remove _cfuvid cookie from session
 	jar.SetCookies(c.Request.URL, []*http.Cookie{})
 

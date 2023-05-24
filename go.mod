@@ -1,4 +1,4 @@
-module github.com/cncbec/ChatGPT-Proxy-V4
+module cncbec/ChatGPT-Proxy-V4
 go 1.20
 
 require (
@@ -6,9 +6,6 @@ require (
 	github.com/bogdanfinn/tls-client v1.3.9
 	github.com/fvbock/endless v0.0.0-20170109170031-447134032cb6
 	github.com/gin-gonic/gin v1.9.0
-)
-
-require (
 	github.com/andybalholm/brotli v1.0.5 // indirect
 	github.com/bogdanfinn/utls v1.5.16 // indirect
 	github.com/bytedance/sonic v1.8.0 // indirect

@@ -1,11 +1,21 @@
 {
-    "name": "ChatGpt-Proxy-V4",
-    "version": 2,
-    "builds": [
+  "name": "ChatGpt-Proxy-V4",
+  "version": 2,
+  "builds": [
     {
-      "src": "/api/api.go",
+      "src": "./api/api.go",
       "use": "@vercel/go"
     }
   ],
-  "routes": [{ "src": "/.*", "dest": "/api/api.go" }],
+  "routes": [
+    {
+      "src": "/api/.*",
+      "methods": ["GET", "POST", "PUT", "DELETE"],
+      "dest": "./api/api.go"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "./index.html"
+    }
+  ]
 }

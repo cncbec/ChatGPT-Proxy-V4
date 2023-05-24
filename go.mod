@@ -1,5 +1,4 @@
-module github.com/acheong08/ChatGPT-Proxy-V4
-
+module github.com/cncbec/ChatGPT-Proxy-V4
 go 1.20
 
 require (

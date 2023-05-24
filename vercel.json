@@ -1,12 +1,6 @@
 {
   "name": "ChatGpt-Proxy-V4",
   "version": 2,
-    "functions": {
-    // 暴露 api/version_go.go 文件 指定该函数运行时资源
-    "api/api.go": {
-      "maxDuration": 5,
-    }
-  },
   "builds": [
     {
       "src": "./api/api.go",
@@ -19,9 +13,5 @@
       "methods": ["GET", "POST", "PUT", "DELETE"],
       "dest": "./api/api.go"
     },
-    {
-      "src": "/(.*)",
-      "dest": "./index.html"
-    }
   ]
 }

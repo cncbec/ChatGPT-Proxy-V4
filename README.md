@@ -10,6 +10,7 @@ This requires a ChatGPT Plus account
 ## Building and running
 `go build`
 `./ChatGPT-Proxy-V4`
+## add to vercel
 
 ## Limitations
 This cannot get around an outright IP ban by OpenAI

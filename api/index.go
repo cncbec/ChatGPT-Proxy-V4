@@ -22,9 +22,9 @@ var (
 	}
 )
 
-type ProxyHandler struct{}
 
-func (h *ProxyHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+
+func ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	// Remove _cfuvid cookie from session
 	CookieJar.SetCookies(r.URL, []*fhttp.Cookie{})
 

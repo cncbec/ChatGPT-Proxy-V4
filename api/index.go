@@ -36,7 +36,7 @@ func Handler(w nhttp.ResponseWriter, r *nhttp.Request) {
 	var url string
 	var err error
 	var request_method string
-	var request *http.Request
+	var request *nhttp.Request
 	var response *http.Response
 
     if r.URL.RawQuery != "" {
@@ -48,7 +48,7 @@ func Handler(w nhttp.ResponseWriter, r *nhttp.Request) {
     request_method = r.Method
     request, err = http.NewRequest(request_method, url, r.Body)
     if err != nil {
-        http.Error(w, err.Error(), http.StatusInternalServerError)
+        nhttp.Error(w, err.Error(), nhttp.StatusInternalServerError)
         return
     }	
 	
@@ -74,7 +74,7 @@ func Handler(w nhttp.ResponseWriter, r *nhttp.Request) {
 	response, err = client.Do(request)
 
     if err != nil {
-        http.Error(w, err.Error(), http.StatusInternalServerError)
+        nhttp.Error(w, err.Error(), nhttp.StatusInternalServerError)
         return
     }	
 	

@@ -11,6 +11,7 @@ import (
 	"github.com/fvbock/endless"
 	"github.com/gin-gonic/gin"
 	nhttp "net/http"
+	"fmt"
 )
 
 var (
@@ -53,7 +54,7 @@ func Handler(w nhttp.ResponseWriter, r *nhttp.Request) {
 		var request_method string
 		var request *http.Request
 		var response *http.Response
-
+		fmt.Print(c.Param("path"))
 		if c.Request.URL.RawQuery != "" {
 			url = "https://chat.openai.com/backend-api" + c.Param("path") + "?" + c.Request.URL.RawQuery
 		} else {

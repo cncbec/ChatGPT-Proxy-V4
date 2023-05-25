@@ -8,7 +8,7 @@ import (
 	http "github.com/bogdanfinn/fhttp"
 	tls_client "github.com/bogdanfinn/tls-client"
 
-	httpn "net/http"
+	nhttp "net/http"
 )
 
 var (
@@ -24,11 +24,7 @@ var (
 	http_proxy = os.Getenv("http_proxy")
 )
 
-
-
-func Handler(w httpn.ResponseWriter, r *httpn.Request) {
-
-
+func Handler(w nhttp.ResponseWriter, r *nhttp.Request) {
 
 	if http_proxy != "" {
 		client.SetProxy(http_proxy)

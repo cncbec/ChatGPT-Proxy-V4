@@ -30,7 +30,7 @@ var (
 
 
 func Handler(w nhttp.ResponseWriter, r *nhttp.Request) {
-
+	fmt.Print('123')
 	if http_proxy != "" {
 		client.SetProxy(http_proxy)
 		println("Proxy set:" + http_proxy)
@@ -48,7 +48,7 @@ func Handler(w nhttp.ResponseWriter, r *nhttp.Request) {
 	handlerss.Any("/api/*path", func (c *gin.Context) {
 		// Remove _cfuvid cookie from session
 		jar.SetCookies(c.Request.URL, []*http.Cookie{})
-
+		fmt.Print('456')
 		var url string
 		var err error
 		var request_method string
@@ -56,9 +56,9 @@ func Handler(w nhttp.ResponseWriter, r *nhttp.Request) {
 		var response *http.Response
 		fmt.Print(c.Param("path"))
 		if c.Request.URL.RawQuery != "" {
-			url = "https://chat.openai.com/backend-api" + c.Param("path") + "?" + c.Request.URL.RawQuery
+			url = "https://chat.openai.com/backend-api/" + c.Param("path") + "?" + c.Request.URL.RawQuery
 		} else {
-			url = "https://chat.openai.com/backend-api" + c.Param("path")
+			url = "https://chat.openai.com/backend-api/" + c.Param("path")
 		}
 		request_method = c.Request.Method
 

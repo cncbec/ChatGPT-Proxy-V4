@@ -46,7 +46,7 @@ func Handler(w nhttp.ResponseWriter, r *nhttp.Request) {
     }
 
     request_method = r.Method
-    request, err = http.NewRequest(request_method, url, r.Body)
+    request, err = nhttp.NewRequest(request_method, url, r.Body)
     if err != nil {
         nhttp.Error(w, err.Error(), nhttp.StatusInternalServerError)
         return
@@ -68,7 +68,7 @@ func Handler(w nhttp.ResponseWriter, r *nhttp.Request) {
     request.Header.Set("user-agent", user_agent)	
 	
     if os.Getenv("PUID") != "" {
-        request.AddCookie(&http.Cookie{Name: "_puid", Value: os.Getenv("PUID")})
+        request.AddCookie(&nhttp.Cookie{Name: "_puid", Value: os.Getenv("PUID")})
     }
 	
 	response, err = client.Do(request)

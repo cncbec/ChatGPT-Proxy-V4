@@ -5,10 +5,10 @@ import (
 	"log"
 	"os"
 
+	http "github.com/bogdanfinn/fhttp"
 	tls_client "github.com/bogdanfinn/tls-client"
 
-	"github.com/fvbock/endless"
-	"net/http"
+	httpn "net/http"
 )
 
 var (
@@ -26,7 +26,7 @@ var (
 
 
 
-func Handler(w http.ResponseWriter, r *http.Request) {
+func Handler(w httpn.ResponseWriter, r *httpn.Request) {
 
 
 
@@ -114,3 +114,4 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 			}
 		}
 }
+

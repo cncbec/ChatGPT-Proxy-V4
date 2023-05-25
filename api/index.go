@@ -28,13 +28,6 @@ var (
 
 func Handler(w http.ResponseWriter, r *http.Request) {
 
-
-
-	if http_proxy != "" {
-		client.SetProxy(http_proxy)
-		println("Proxy set:" + http_proxy)
-	}
-
 	jar.SetCookies(r.URL, []*http.Cookie{})
 	
 	var url string

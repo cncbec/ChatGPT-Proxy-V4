@@ -1,6 +1,7 @@
 package api
 
 import (
+	"os"
     "fmt"
     "io"
     yhttp "net/http"
@@ -22,7 +23,7 @@ var (
 )
 
 func ForwardRequest(w yhttp.ResponseWriter, r *yhttp.Request) {
-	jar.SetCookies(c.Request.URL, []*http.Cookie{})
+	jar.SetCookies(r.URL, []*http.Cookie{})
 	
 	var url string
 	var err error
@@ -40,7 +41,7 @@ func ForwardRequest(w yhttp.ResponseWriter, r *yhttp.Request) {
 	
 	request_method = r.Method
 
-	request, err = http.NewRequest(request_method, url, c.Request.Body)
+	request, err = http.NewRequest(request_method, url, r.Body)
 	if err != nil {
 		fmt.Printf("Failed to create HTTPS transport due to %v\n", err)
 		return
@@ -50,7 +51,7 @@ func ForwardRequest(w yhttp.ResponseWriter, r *yhttp.Request) {
 	request.Header.Set("Connection", "keep-alive")
 	request.Header.Set("Content-Type", "application/json")
 	request.Header.Set("Keep-Alive", "timeout=360")
-	request.Header.Set("Authorization", c.Request.Header.Get("Authorization"))
+	request.Header.Set("Authorization", r.Header.Get("Authorization"))
 	request.Header.Set("sec-ch-ua", "\"Chromium\";v=\"112\", \"Brave\";v=\"112\", \"Not:A-Brand\";v=\"99\"")
 	request.Header.Set("sec-ch-ua-mobile", "?0")
 	request.Header.Set("sec-ch-ua-platform", "\"Linux\"")

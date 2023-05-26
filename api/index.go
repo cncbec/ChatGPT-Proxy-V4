@@ -72,7 +72,7 @@ func ForwardRequest(w yhttp.ResponseWriter, r *yhttp.Request) {
 
 
     defer response.Body.Close()
-	w.Header.Add("Content-Type", response.Header.Get("Content-Type"))
+	w.Header().Add("Content-Type", response.Header.Get("Content-Type"))
     w.WriteHeader(response.StatusCode)
     buf := make([]byte, 1024)
     // 将响应体写入流式响应中

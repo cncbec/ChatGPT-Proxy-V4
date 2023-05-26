@@ -5,7 +5,7 @@ import (
     "io"
     "net/http"
 
-    "github.com/bogdanfinn/tls_client"
+    tls_client "github.com/bogdanfinn/tls-client"
 )
 
 func ForwardRequest(w http.ResponseWriter, r *http.Request) {
